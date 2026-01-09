@@ -23,9 +23,13 @@ Instead of system commands, It understands a specific set of commands designed t
 Using the console a user can:
 
 a) Create new objects( example a user)
-b) View existing objects 
+
+b) View existing objects
+ 
 c) Modify object attributes
+
 d) Deletes objects
+
 e) count how many objects exists of a given type
 
 # How to start a console
@@ -57,10 +61,13 @@ after running it, you will see something like this : (hbnb)
 
 Project structure
 
-console.py            - Entry point of the application
-models/               - Contains all data models
-models/engine/        - Handles file storage
-file_storage.py       - Saves and loads data using JSON
+console.py:  Entry point of the application
+
+models/ : Contains all data models
+
+models/engine/ :  Handles file storage
+
+file_storage.py :  Saves and loads data using JSON
 
 # How to use the console
 
@@ -109,5 +116,6 @@ Available commands and what they does
 Authors
 
 -Shakilla Uwamahoro s.uwamahoro1@alustudent.com
+
 -Liliane Uwase l.uwase@alustudent.com
 
