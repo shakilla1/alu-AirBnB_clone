@@ -1,0 +1,20 @@
+#!/usr/bin/python3
+"""Unittest for User"""
+import unittest
+from models.user import User
+
+class TestUser(unittest.TestCase):
+    """Test cases for User"""
+
+    def test_attributes(self):
+        """Test User attributes"""
+        my_user = User()
+        self.assertTrue(hasattr(my_user, "email"))
+        self.assertTrue(hasattr(my_user, "password"))
+        self.assertTrue(hasattr(my_user, "first_name"))
+        self.assertTrue(hasattr(my_user, "last_name"))
+        self.assertEqual(my_user.email, "")
+        self.assertEqual(my_user.password, "")
+
+if __name__ == '__main__':
+    unittest.main()
