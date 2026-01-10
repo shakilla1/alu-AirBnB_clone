@@ -1,26 +1,26 @@
 # alu-AirBnB_clone - The console
 
-# The AirBnB clone project!
+# The Airbnb clone project!
 
 # Project Description
 
-This project is for craeting an AiRBnB_clone application, where we will be creating a command-line console that allows sers to interact with the backend of the system.
+This project is for creating an AiRBnB_clone application, where we will be creating a command-line console that allows users to interact with the backend of the system.
 
-The console is written in python and is used to manage differnt objects such as Users, places, states and cities. All data created in console are saved in a json file, allowing it to persist between sessions.
+The console is written in python and is used to manage differnt objects such as Users, places, states and cities. All data created in the console is saved in a JSON file, allowing it to persist between sessions.
 
 # The purpose of this project
 
 The main purpose of this app is to:
-- practice object oriented programming in python
+- Practice object-oriented programming in Python
 - Build a command interpreter 
-- Store and reterive data using JSON, and etc.
+- Store and retrieve data using JSON, and etc.
 
-Description of command interpreter
+Description of the command interpreter
 
 The command interpreter works the same way as a basic shell.
-Instead of system commands, It understands a specific set of commands designed to manage the project's data.
+Instead of system commands, it understands a specific set of commands designed to manage the project's data.
 
-Using the console a user can:
+Using the console, a user can:
 
 a) Create new objects( example a user)
 
@@ -115,7 +115,9 @@ Available commands and what they does
 
 Authors
 
+-Liliane Uwase l.uwase@alustudent.com
+
 -Shakilla Uwamahoro s.uwamahoro1@alustudent.com
 
--Liliane Uwase l.uwase@alustudent.com
+
 
