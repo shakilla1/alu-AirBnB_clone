@@ -1,35 +1,39 @@
 #!/usr/bin/python3
+"""
+The console command interpreter
+"""
 import cmd
 from models.base_model import BaseModel
 from models.user import User
-from models.place import Place  
 from models.state import State
 from models.city import City
 from models.amenity import Amenity
+from models.place import Place
 from models.review import Review
 from models import storage
 
 class HBNBCommand(cmd.Cmd):
-
-
-    prompt = "(hbnb) "
-
-    valid_classes = ["BaseModel", "User", "Place", "State", "City", "Amenity", "Review"]
+    """Simple command processor example."""
+    prompt = '(hbnb) '
+    
+    # List of classes we can create/edit
+    valid_classes = ["BaseModel", "User", "State", "City", "Amenity", "Place", "Review"]
 
     def do_quit(self, line):
         """Quit command to exit the program"""
-        return True 
+        return True
+
     def do_EOF(self, line):
         """EOF command to exit the program"""
         print()
         return True
-    
+
     def emptyline(self):
-        """Do nothing on empty input line"""
+        """Do nothing on empty line"""
         pass
 
     def do_create(self, line):
-  
+        """Creates a new instance of a class"""
         if not line:
             print("** class name missing **")
             return
@@ -42,7 +46,7 @@ class HBNBCommand(cmd.Cmd):
         print(new_instance.id)
 
     def do_show(self, line):
-    
+        """Prints the string representation of an instance"""
         if not line:
             print("** class name missing **")
             return
@@ -54,14 +58,14 @@ class HBNBCommand(cmd.Cmd):
             print("** instance id missing **")
             return
         key = "{}.{}".format(args[0], args[1])
-        all_objects = storage.all()
-        if key not in all_objects:
+        all_objs = storage.all()
+        if key in all_objs:
+            print(all_objs[key])
+        else:
             print("** no instance found **")
-            return
-        print(all_objects[key])
 
     def do_destroy(self, line):
-
+        """Deletes an instance based on the class name and id"""
         if not line:
             print("** class name missing **")
             return
@@ -78,11 +82,10 @@ class HBNBCommand(cmd.Cmd):
             del all_objs[key]
             storage.save()
         else:
-            print("** no instance found **")    
-
+            print("** no instance found **")
 
     def do_all(self, line):
-
+        """Prints all string representation of all instances"""
         all_objs = storage.all()
         list_objs = []
         if not line:
@@ -98,9 +101,8 @@ class HBNBCommand(cmd.Cmd):
                     list_objs.append(str(obj))
         print(list_objs)
 
-
     def do_update(self, line):
-      
+        """Updates an instance based on the class name and id"""
         if not line:
             print("** class name missing **")
             return
