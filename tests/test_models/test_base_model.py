@@ -3,8 +3,9 @@
 import unittest
 from models.base_model import BaseModel
 
-class TestBaseModel(unittest.TestCase):
 
+class TestBaseModel(unittest.TestCase):
+    """Test cases for BaseModel"""
 
     def test_init(self):
         """Test initialization"""
@@ -28,5 +29,6 @@ class TestBaseModel(unittest.TestCase):
         self.assertEqual(my_model_dict["__class__"], "BaseModel")
         self.assertEqual(my_model_dict["id"], my_model.id)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()
