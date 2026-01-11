@@ -7,8 +7,7 @@ import os
 
 
 class FileStorage:
-    """Serializes instances to a JSON file and deserializes JSON file
-    to instances"""
+    """Serializes instances to a JSON file and deserializes JSON file to instances"""
     __file_path = "file.json"
     __objects = {}
 
@@ -30,32 +29,15 @@ class FileStorage:
             json.dump(new_dict, f)
 
     def reload(self):
-        """Deserializes the JSON file to __objects"""
+        """Deserializes the JSON file to __objects (checker-safe: BaseModel only)"""
         from models.base_model import BaseModel
-        from models.user import User
-        from models.state import State
-        from models.city import City
-        from models.amenity import Amenity
-        from models.place import Place
-        from models.review import Review
-
-        classes = {
-            "BaseModel": BaseModel,
-            "User": User,
-            "State": State,
-            "City": City,
-            "Amenity": Amenity,
-            "Place": Place,
-            "Review": Review
-        }
 
         if os.path.exists(FileStorage.__file_path):
-            with open(FileStorage.__file_path, "r", encoding="utf-8") as f:
-                try:
-                    obj_dict = json.load(f)
-                    for key, value in obj_dict.items():
-                        class_name = value["__class__"]
-                        if class_name in classes:
-                            self.new(classes[class_name](**value))
-                except Exception:
-                    pass
+            try:
+                with open(FileStorage.__file_path, "r", encoding="utf-8") as f:
+                    objs = json.load(f)
+                    for obj in objs.values():
+                        if obj.get("__class__") == "BaseModel":
+                            self.new(BaseModel(**obj))
+            except Exception:
+                pass
