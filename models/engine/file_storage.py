@@ -5,8 +5,10 @@ Contains the FileStorage class
 import json
 import os
 
+
 class FileStorage:
-    """Serializes instances to a JSON file and deserializes JSON file to instances"""
+    """Serializes instances to a JSON file and deserializes JSON file
+    to instances"""
     __file_path = "file.json"
     __objects = {}
 
@@ -55,5 +57,5 @@ class FileStorage:
                         class_name = value["__class__"]
                         if class_name in classes:
                             self.new(classes[class_name](**value))
-                except:
+                except Exception:
                     pass

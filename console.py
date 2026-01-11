@@ -12,12 +12,20 @@ from models.place import Place
 from models.review import Review
 from models import storage
 
+
 class HBNBCommand(cmd.Cmd):
     """Simple command processor example."""
-    prompt = '(hbnb) '
-    
-    # List of classes we can create/edit
-    valid_classes = ["BaseModel", "User", "State", "City", "Amenity", "Place", "Review"]
+    prompt = "(hbnb) "
+
+    valid_classes = [
+        "BaseModel",
+        "User",
+        "State",
+        "City",
+        "Amenity",
+        "Place",
+        "Review"
+    ]
 
     def do_quit(self, line):
         """Quit command to exit the program"""
@@ -96,7 +104,7 @@ class HBNBCommand(cmd.Cmd):
             if args[0] not in self.valid_classes:
                 print("** class doesn't exist **")
                 return
-            for key, obj in all_objs.items():
+            for obj in all_objs.values():
                 if obj.__class__.__name__ == args[0]:
                     list_objs.append(str(obj))
         print(list_objs)
@@ -135,7 +143,7 @@ class HBNBCommand(cmd.Cmd):
         try:
             if attr_value.isdigit():
                 attr_value = int(attr_value)
-            elif float(attr_value):
+            else:
                 attr_value = float(attr_value)
         except ValueError:
             pass
@@ -143,5 +151,6 @@ class HBNBCommand(cmd.Cmd):
         setattr(obj, attr_name, attr_value)
         obj.save()
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     HBNBCommand().cmdloop()
