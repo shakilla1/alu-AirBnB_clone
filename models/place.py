@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-"""place module for the AirBnB clone"""
-
+"""Place class"""
 from models.base_model import BaseModel
 
 
