@@ -41,3 +41,4 @@ class FileStorage:
                             self.new(BaseModel(**obj))
             except Exception:
                 pass
+
