@@ -4,9 +4,6 @@ body {
     font-family: Circular, "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 14px;
     color: #484848;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
 }
 
 .container {
